@@ -8,13 +8,13 @@ int main() {
     float areaemquilometros1, areaemquilometros2;
     float pib1, pib2;
     int pontosturisticos1, pontosturisticos2;
-
+    float pibpercapta1, pibpercapta2;
+    float densidadepopulacional1, densidadepopulacional2;
+    float divisao1, divisao2;
     
 
-("printf desafio super trunfo !\n");
 
-
-
+    
     printf("Carta 1\n");
     printf("Digite o codigo da primeira carta: ");
     scanf("%s", codigodacarta1);
@@ -36,6 +36,7 @@ int main() {
 
     printf("Digite o numero de habitantes: ");
     scanf("%d", &habitantes1);
+
 
     printf("\nCarta 2\n");
     printf("Digite o codigo da segunda carta: ");
@@ -59,8 +60,26 @@ int main() {
     printf("Digite o numero de habitantes: ");
     scanf("%d", &habitantes2);
 
-    
+    printf("Digite o pibpercapta1:\n");
+    scanf("%f", &pibpercapta1);
 
-    return 0;
-}
+    printf("Digite o pibpercapta2:\n");
+    scanf("%f", &pibpercapta2);
 
+    printf("digite a desnsidade populacional1 \n");
+    scanf("%f", &densidadepopulacional1);
+
+    printf("digite a densidade populacional2\n");
+    scanf("%f", &densidadepopulacional2);
+
+
+    pibpercapta1 = pib1 / habitantes1;
+     densidadepopulacional1 = habitantes1 / areaemquilometros1;
+
+
+
+     pibpercapta2 = pib2 / habitantes2;
+     densidadepopulacional2 = pib2 / habitantes2;
+
+
+return 0 ;
