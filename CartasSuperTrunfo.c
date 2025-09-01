@@ -10,7 +10,9 @@ int main() {
     int pontosturisticos1, pontosturisticos2;
     float pibpercapta1, pibpercapta2;
     float densidadepopulacional1, densidadepopulacional2;
-    float divisao1, divisao2;
+    float superpoder1, superpoder2;
+    int resultado;
+
     
 
 
@@ -20,7 +22,7 @@ int main() {
     scanf("%s", codigodacarta1);
 
     printf("Digite a area em km²: ");
-    scanf("%f", &areaemquilometros1);
+    scanf("%.2f", &areaemquilometros1);
 
     printf("Digite o nome da cidade: ");
     scanf("%s", nomedacidade1);
@@ -38,12 +40,13 @@ int main() {
     scanf("%d", &habitantes1);
 
 
+
     printf("\nCarta 2\n");
     printf("Digite o codigo da segunda carta: ");
     scanf("%s", codigodacarta2);
 
     printf("Digite a area em km²: ");
-    scanf("%f", &areaemquilometros2);
+    scanf("%.2f", &areaemquilometros2);
 
     printf("Digite o nome da cidade: ");
     scanf("%s", nomedacidade2);
@@ -60,26 +63,75 @@ int main() {
     printf("Digite o numero de habitantes: ");
     scanf("%d", &habitantes2);
 
-    printf("Digite o pibpercapta1:\n");
-    scanf("%f", &pibpercapta1);
-
-    printf("Digite o pibpercapta2:\n");
-    scanf("%f", &pibpercapta2);
-
-    printf("digite a desnsidade populacional1 \n");
-    scanf("%f", &densidadepopulacional1);
-
-    printf("digite a densidade populacional2\n");
-    scanf("%f", &densidadepopulacional2);
-
-
-    pibpercapta1 = pib1 / habitantes1;
-     densidadepopulacional1 = habitantes1 / areaemquilometros1;
+   
 
 
 
-     pibpercapta2 = pib2 / habitantes2;
-     densidadepopulacional2 = pib2 / habitantes2;
+   pibpercapta1 = pib1 / habitantes1;
+  densidadepopulacional1 = habitantes1 / areaemquilometros1;
+
+    pibpercapta2 = pib2 / habitantes2;
+    densidadepopulacional2 = habitantes2 / areaemquilometros2;
+
+     
+     
+  
+    
+
+superpoder1 = (pibpercapta1 + densidadepopulacional1 + pontosturisticos1 + areaemquilometros1) / 4;
+
+superpoder2 = (pibpercapta2 + densidadepopulacional2 + pontosturisticos2 + areaemquilometros2) / 4;
 
 
-return 0 ;
+resultado = habitantes1 > habitantes2;
+
+printf("habitantes1 (%d) > habitantes2 (%d):%d \n", habitantes1, habitantes2, resultado);
+
+resultado = densidadepopulacional1 > densidadepopulacional2;
+printf("densidade1(%.2f) > densidade2 (%.2f):%d \n", densidadepopulacional1, densidadepopulacional2, resultado);
+
+resultado = pibpercapta1 > pibpercapta2;
+printf("pib per capta1 (%.2f) > pib per capta2 (%.2f):%d \n", pibpercapta1, pibpercapta2, resultado);
+    
+resultado = pib1 > pib2;
+printf("pib1 (%.2f) > pib2 (%.2f):%d \n", pib1, pib2, resultado);
+
+resultado = areaemquilometros1 > areaemquilometros2;
+printf("area1 (%.2f) > area2(%.2f):%d \n", areaemquilometros1, areaemquilometros2);
+
+
+resultado = superpoder1 > superpoder2;
+printf("super poder 1 (%.2f) > super poder 2 (%.2f): %d\n", superpoder1, superpoder2, resultado);
+
+    
+     
+
+     
+
+
+    
+     
+     
+
+     
+
+
+
+      
+    
+
+
+
+
+
+
+      
+
+    
+   
+
+    return 0;
+
+    
+}
+
