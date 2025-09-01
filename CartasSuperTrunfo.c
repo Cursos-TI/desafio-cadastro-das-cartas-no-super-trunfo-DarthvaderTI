@@ -134,4 +134,3 @@ printf("super poder 1 (%.2f) > super poder 2 (%.2f): %d\n", superpoder1, superpo
 
     
 }
-
