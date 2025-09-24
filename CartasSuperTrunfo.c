@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
     char codigodacarta1[50], codigodacarta2[50];
@@ -11,18 +12,13 @@ int main() {
     float pibpercapta1, pibpercapta2;
     float densidadepopulacional1, densidadepopulacional2;
     float superpoder1, superpoder2;
-    int resultado;
 
-    
-
-
-    
     printf("Carta 1\n");
     printf("Digite o codigo da primeira carta: ");
     scanf("%s", codigodacarta1);
 
     printf("Digite a area em km²: ");
-    scanf("%.2f", &areaemquilometros1);
+    scanf("%f", &areaemquilometros1);
 
     printf("Digite o nome da cidade: ");
     scanf("%s", nomedacidade1);
@@ -39,14 +35,12 @@ int main() {
     printf("Digite o numero de habitantes: ");
     scanf("%d", &habitantes1);
 
-
-
     printf("\nCarta 2\n");
     printf("Digite o codigo da segunda carta: ");
     scanf("%s", codigodacarta2);
 
     printf("Digite a area em km²: ");
-    scanf("%.2f", &areaemquilometros2);
+    scanf("%f", &areaemquilometros2);
 
     printf("Digite o nome da cidade: ");
     scanf("%s", nomedacidade2);
@@ -63,74 +57,58 @@ int main() {
     printf("Digite o numero de habitantes: ");
     scanf("%d", &habitantes2);
 
-   
-
-
-
-   pibpercapta1 = pib1 / habitantes1;
-  densidadepopulacional1 = habitantes1 / areaemquilometros1;
+    // cálculos
+    pibpercapta1 = pib1 / habitantes1;
+    densidadepopulacional1 = (float) habitantes1 / areaemquilometros1;
 
     pibpercapta2 = pib2 / habitantes2;
-    densidadepopulacional2 = habitantes2 / areaemquilometros2;
+    densidadepopulacional2 = (float) habitantes2 / areaemquilometros2;
 
-     
-     
-  
-    
+    superpoder1 = (pibpercapta1 + densidadepopulacional1 + pontosturisticos1 + areaemquilometros1) / 4;
+    superpoder2 = (pibpercapta2 + densidadepopulacional2 + pontosturisticos2 + areaemquilometros2) / 4;
 
-superpoder1 = (pibpercapta1 + densidadepopulacional1 + pontosturisticos1 + areaemquilometros1) / 4;
+    printf("\n--- Comparações ---\n");
 
-superpoder2 = (pibpercapta2 + densidadepopulacional2 + pontosturisticos2 + areaemquilometros2) / 4;
+    if (habitantes1 > habitantes2)
+        printf("Mais habitantes: %s (%d)\n", nomedacidade1, habitantes1);
+    else
+        printf("Mais habitantes: %s (%d)\n", nomedacidade2, habitantes2);
 
+    if (densidadepopulacional1 > densidadepopulacional2)
+        printf("Maior densidade populacional: %s (%.2f)\n", nomedacidade1, densidadepopulacional1);
+    else
+        printf("Maior densidade populacional: %s (%.2f)\n", nomedacidade2, densidadepopulacional2);
 
-resultado = habitantes1 > habitantes2;
+    if (pibpercapta1 > pibpercapta2)
+        printf("Maior PIB per capita: %s (%.2f)\n", nomedacidade1, pibpercapta1);
+    else
+        printf("Maior PIB per capita: %s (%.2f)\n", nomedacidade2, pibpercapta2);
 
-printf("habitantes1 (%d) > habitantes2 (%d):%d \n", habitantes1, habitantes2, resultado);
+    if (pib1 > pib2)
+        printf("Maior PIB total: %s (%.2f)\n", nomedacidade1, pib1);
+    else
+        printf("Maior PIB total: %s (%.2f)\n", nomedacidade2, pib2);
 
-resultado = densidadepopulacional1 > densidadepopulacional2;
-printf("densidade1(%.2f) > densidade2 (%.2f):%d \n", densidadepopulacional1, densidadepopulacional2, resultado);
+    if (areaemquilometros1 > areaemquilometros2)
+        printf("Maior área territorial: %s (%.2f km²)\n", nomedacidade1, areaemquilometros1);
+    else
+        printf("Maior área territorial: %s (%.2f km²)\n", nomedacidade2, areaemquilometros2);
 
-resultado = pibpercapta1 > pibpercapta2;
-printf("pib per capta1 (%.2f) > pib per capta2 (%.2f):%d \n", pibpercapta1, pibpercapta2, resultado);
-    
-resultado = pib1 > pib2;
-printf("pib1 (%.2f) > pib2 (%.2f):%d \n", pib1, pib2, resultado);
+    if (pontosturisticos1 > pontosturisticos2)
+        printf("Mais pontos turísticos: %s (%d)\n", nomedacidade1, pontosturisticos1);
+    else
+        printf("Mais pontos turísticos: %s (%d)\n", nomedacidade2, pontosturisticos2);
 
-resultado = areaemquilometros1 > areaemquilometros2;
-printf("area1 (%.2f) > area2(%.2f):%d \n", areaemquilometros1, areaemquilometros2);
+    if (superpoder1 > superpoder2)
+        printf("Maior Super Poder: %s (%.2f)\n", nomedacidade1, superpoder1);
+    else
+        printf("Maior Super Poder: %s (%.2f)\n", nomedacidade2, superpoder2);
 
-
-resultado = superpoder1 > superpoder2;
-printf("super poder 1 (%.2f) > super poder 2 (%.2f): %d\n", superpoder1, superpoder2, resultado);
-
-    
-     
-
-     
-
-
-    
-     
-     
-
-     
-
-
-
-      
-    
-
-
-
-
-
-
-      
-
-    
-   
+    // comparação de nomes (alfabética)
+    if (strcmp(nomedacidade1, nomedacidade2) > 0)
+        printf("Nome da cidade maior (ordem alfabética): %s\n", nomedacidade1);
+    else
+        printf("Nome da cidade maior (ordem alfabética): %s\n", nomedacidade2);
 
     return 0;
-
-    
 }
